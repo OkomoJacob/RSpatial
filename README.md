@@ -1,1 +1,1 @@
-Some small stuff in R peogramming Language
+Some small stuff in R Statistical Language
