@@ -25,4 +25,3 @@ xyplot(log(zinc)~dist | ffreq, meuse, groups=soil, panel=function(x, y, ...)
   panel.loess(x, y, ...)
   }, 
 auto.key=TRUE)
-
