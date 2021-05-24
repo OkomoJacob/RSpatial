@@ -1,6 +1,6 @@
 # Import the geostats libraries
 # library(sp)
-library(lattice)
+library(lattice) #for plotting graphics
 
 #call the meuse R data
 data(meuse)
