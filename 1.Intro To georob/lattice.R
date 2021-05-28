@@ -1,3 +1,4 @@
+# Import the geostats libraries
 library(sp)
 library(lattice)
 data(meuse, package="sp")
