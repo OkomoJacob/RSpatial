@@ -1,6 +1,8 @@
 # Import the geostats libraries
 library(sp)
 library(lattice)
+
+#call the meuse R data
 data(meuse, package="sp")
 levels(meuse$ffreq) <- paste("ffreq", levels(meuse$ffreq), sep="")
 levels(meuse$soil) <- paste("soil", levels(meuse$soil), sep="")
