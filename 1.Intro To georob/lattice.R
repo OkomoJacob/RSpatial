@@ -1,8 +1,9 @@
 # Import the geostats libraries
+# library(sp)
 library(lattice)
 
 #call the meuse R data
-data(meuse, package="sp")
+data(meuse)
 
 #ffreq = flooding frequency
 
