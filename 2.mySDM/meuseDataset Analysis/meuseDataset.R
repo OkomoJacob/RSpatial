@@ -9,3 +9,14 @@ coordinates(meuse) <- c("x", "y")
 # Predict topsoil zinc concentration using spplot & bubble plots
 spplot(meuse, "zinc", do.log = T, colorkey = TRUE)
 bubble(meuse, "zinc", do.log = T, key.space = "right")
+
+data("meuse.grid")
+coordinates(meuse.grid) <- c("x", "y")
+meuse.grid <- as(meuse.grid, "SpatialGridDataFrame")
+library(gstat)
+
+# Import the gstat pkg to perform the IDW
+idw.out <- idw(zinc~1, meuse, meuse.grid, idp=2)
+
+## inverse distance weighted interpolation
+as.data.frame(idw.out)[1:5,]
