@@ -20,3 +20,18 @@ idw.out <- idw(zinc~1, meuse, meuse.grid, idp=2)
 
 ## inverse distance weighted interpolation
 as.data.frame(idw.out)[1:5,]
+
+# Linear regression Models for Predictions
+
+
+
+
+
+
+
+
+
+
+
+
+
