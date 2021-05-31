@@ -17,4 +17,7 @@ Ideally, IDW interpolation (with small `p`) often results in maps that are close
 
 We can also predict the zinc concentration using [linear regression models](). One of the important predictors is the distance to the Meuse river. The figure below shows the relationship between the logarithm of topsoil zinc concentration and the distance to the Meuse river.
 
-<!--  -->
+<!-- Img logZinc_vs_IDW -->
+<img src =>
+
+Further ESDA actually show that eEven after removing the trend from variable `dist`, there is still some spatial autocorrelation left on the residuals (e.g. neighboring points tends to have similar residual values.),just as the first law of Geography indicates
