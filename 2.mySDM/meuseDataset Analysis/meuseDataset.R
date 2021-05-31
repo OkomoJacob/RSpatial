@@ -22,6 +22,12 @@ idw.out <- idw(zinc~1, meuse, meuse.grid, idp=2)
 as.data.frame(idw.out)[1:5,]
 
 # Linear regression Models for Predictions
+xyplot(log(zinc) ~ sqrt(dist), as.data.frame(meuse))
+
+# Fitting the Linear Models
+zn.lm <- lm(log(zinc) ~ sqrt(dist), meuse)
+
+
 
 
 

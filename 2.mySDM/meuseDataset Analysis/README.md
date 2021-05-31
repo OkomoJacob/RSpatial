@@ -19,5 +19,6 @@ We can also predict the zinc concentration using [linear regression models](). O
 
 <!-- Img logZinc_vs_IDW -->
 <img src =>
+### [Fitting the Linear Model]
 
 Further ESDA actually show that eEven after removing the trend from variable `dist`, there is still some spatial autocorrelation left on the residuals (e.g. neighboring points tends to have similar residual values.),just as the first law of Geography indicates
