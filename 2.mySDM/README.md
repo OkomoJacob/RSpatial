@@ -10,4 +10,7 @@ data(meuse)
 ```
 
 ### Resources
-1.[Intro to SDM, stepby step](https://rspatial.org/raster/sdm/)
+
+1.[Intro to SDM, stepby step](https://rspatial.org/raster/sdm/)<br>
+2.[Spatial Analysis on Meuse Dataset](http://statweb.lsu.edu/faculty/li/IIT/spatial.html)
+3.
