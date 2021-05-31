@@ -13,6 +13,7 @@ bubble(meuse, "zinc", do.log = T, key.space = "right")
 data("meuse.grid")
 coordinates(meuse.grid) <- c("x", "y")
 meuse.grid <- as(meuse.grid, "SpatialGridDataFrame")
+
 library(gstat)
 
 # Import the gstat pkg to perform the IDW
@@ -30,10 +31,4 @@ meuse$fitted.s <- predict(zn.lm,meuse) - mean(predict(zn.lm,meuse))
 meuse$residuals <- residuals(zn.lm)
 spplot(meuse, c("fitted.s", "residuals"))
 
-
-
-
-
-
-
-
+## Estimate spatial correlation: variogram
