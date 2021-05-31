@@ -6,7 +6,7 @@ The Meuse River dataset we used here is included in `sp` package in R, which pro
 ### Non-geostatistical approaches
 We can however predict the zinc concentration using non-geostatistical methods, such as [Inverse Distance Weighted Interpolation (IDW)](https://pro.arcgis.com/en/pro-app/latest/help/analysis/geostatistical-analyst/how-inverse-distance-weighted-interpolation-works.htm):
 <!-- The IDWW formular -->
-<img src=>
+<img src= https://github.com/OkomoJacob/0x520x/blob/main/2.mySDM/meuseDataset%20Analysis/images/IDW%20interpolation.PNG>
 
 The [idp parameter]() in function idw is the inverse (Euclidean) distance weighting power p. Large value of idp is similar to small value of k in k-nearest neighbors (KNN).
 
