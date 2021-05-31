@@ -4,7 +4,7 @@
 The Meuse River dataset we used here is included in `sp` package in R, which provides classes and methods for spatial data: `points, lines, polygons and grids`. This data set gives locations and topsoil heavy metal concentrations, along with a number of soil and landscape variables at the observation locations, collected in a flood plain of the river Meuse, near the village of Stein (NL). Heavy metal concentrations are from composite samples of an area of approximately 15m × 15m.
 <!-- Intro -->
 ###### Predicting Zinc concentration from the Meuse River Dataset
-<img src = https://github.com/OkomoJacob/0x520x/blob/main/2.mySDM/meuseDataset%20Analysis/plots/spplot_zinc_conc.png> + <img src = https://github.com/OkomoJacob/0x520x/blob/main/2.mySDM/meuseDataset%20Analysis/plots/bubble_zinc.png>
+<img src = https://github.com/OkomoJacob/0x520x/blob/main/2.mySDM/meuseDataset%20Analysis/plots/spplot_zinc_conc.png><img src = https://github.com/OkomoJacob/0x520x/blob/main/2.mySDM/meuseDataset%20Analysis/plots/bubble_zinc.png>
 
 ### Non-geostatistical approaches
 We can however predict the zinc concentration using non-geostatistical methods, such as [Inverse Distance Weighted Interpolation (IDW)](https://pro.arcgis.com/en/pro-app/latest/help/analysis/geostatistical-analyst/how-inverse-distance-weighted-interpolation-works.htm):
