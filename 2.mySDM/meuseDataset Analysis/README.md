@@ -19,6 +19,18 @@ We can also predict the zinc concentration using [linear regression models](). O
 
 <!-- Img logZinc_vs_IDW -->
 <img src =>
-### [Fitting the Linear Model]
 
-Further ESDA actually show that eEven after removing the trend from variable `dist`, there is still some spatial autocorrelation left on the residuals (e.g. neighboring points tends to have similar residual values.),just as the first law of Geography indicates
+### [Fitting the Linear Model]()
+
+Further ESDA actually show that eEven after removing the trend from variable `dist`, there is still some spatial autocorrelation left on the residuals (e.g. neighboring points tends to have similar residual values.),just as the first law of Geography indicates.
+
+<!-- Img -->
+
+### Estimate spatial correlation: variogram
+The spatial correlatin can be observed by looking at the lagged scatter plot.
+When lag is between 100 meters, the correlation is quite strong (i.e. correlation is 0.722). However, the spatial correlation becomes very close to 0 when lagged distance is beyond 500 meters.
+
+
+### Acknowledgements & References
+1. [Spatial Analysis on Meuse Dataset](http://statweb.lsu.edu/faculty/li/IIT/spatial.html) <br>
+2. []()

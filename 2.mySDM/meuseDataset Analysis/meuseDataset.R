@@ -26,13 +26,9 @@ xyplot(log(zinc) ~ sqrt(dist), as.data.frame(meuse))
 
 # Fitting the Linear Models
 zn.lm <- lm(log(zinc) ~ sqrt(dist), meuse)
-
-
-
-
-
-
-
+meuse$fitted.s <- predict(zn.lm,meuse) - mean(predict(zn.lm,meuse))
+meuse$residuals <- residuals(zn.lm)
+spplot(meuse, c("fitted.s", "residuals"))
 
 
 
