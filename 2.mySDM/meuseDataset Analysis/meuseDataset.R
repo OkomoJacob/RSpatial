@@ -6,5 +6,6 @@ library(lattice)
 data(meuse)
 coordinates(meuse) <- c("x", "y")
 
-# Predict topsoil zinc concentration
+# Predict topsoil zinc concentration using spplot & bubble plots
 spplot(meuse, "zinc", do.log = T, colorkey = TRUE)
+bubble(meuse, "zinc", do.log = T, key.space = "right")
