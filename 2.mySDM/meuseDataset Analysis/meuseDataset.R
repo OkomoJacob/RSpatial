@@ -13,7 +13,6 @@ bubble(meuse, "zinc", do.log = T, key.space = "right")
 data("meuse.grid")
 coordinates(meuse.grid) <- c("x", "y")
 meuse.grid <- as(meuse.grid, "SpatialGridDataFrame")
-
 library(gstat)
 
 # Import the gstat pkg to perform the IDW
