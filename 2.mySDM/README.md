@@ -10,7 +10,8 @@ data(meuse)
 ```
 
 ### Resources
-
-1.[Intro to SDM, stepby step](https://rspatial.org/raster/sdm/)<br>
-2.[Spatial Analysis on Meuse Dataset](http://statweb.lsu.edu/faculty/li/IIT/spatial.html)
-3.
+1. [A very brief introduction to species distribution models in R](https://jcoliver.github.io/learn-r/011-species-distribution-models.html)
+2. [Introduction to species distribution modelling (SDM) in R, Damaris Zurell](https://damariszurell.github.io/SDM-Intro/)
+3. [Intro to SDM, stepby step](https://rspatial.org/raster/sdm/)<br>
+4. [Spatial Analysis on Meuse Dataset](http://statweb.lsu.edu/faculty/li/IIT/spatial.html)
+5. []()

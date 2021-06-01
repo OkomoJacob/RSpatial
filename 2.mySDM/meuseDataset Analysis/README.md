@@ -36,5 +36,5 @@ When lag is between 100 meters, the correlation is quite strong (i.e. correlatio
 
 
 ### Acknowledgements & References
+1. [How IDW really works](https://pro.arcgis.com/en/pro-app/latest/help/analysis/geostatistical-analyst/how-inverse-distance-weighted-interpolation-works.htm) <br>
 1. [Spatial Analysis on Meuse Dataset](http://statweb.lsu.edu/faculty/li/IIT/spatial.html) <br>
-2. []()
