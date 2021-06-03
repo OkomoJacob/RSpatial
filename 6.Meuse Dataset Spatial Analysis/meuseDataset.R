@@ -34,7 +34,7 @@ spplot(meuse, c("fitted.s", "residuals"))
 hscat(log(zinc)~1,meuse,(0:9)*100)
 
 #Experimental Variogram
-
+plot(variogram(log(zinc)~, meuse), type="1")
 
 
 
