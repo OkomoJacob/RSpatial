@@ -37,6 +37,9 @@ When lag is between 100 meters for this case, the correlation is quite strong (i
 <!-- Variogram img -->
 <img src=>
 
+### Experimental Variogram
+- Experimental variogram can be viewed as a discrete function calculated using a measure of variability between points at various distances.
+- The ∼1 defines a single constant mean coefficient model: Z(s)=μ+ϵ(s), where s is the location.
 
 ### Acknowledgements & References
 1. [How IDW really works](https://pro.arcgis.com/en/pro-app/latest/help/analysis/geostatistical-analyst/how-inverse-distance-weighted-interpolation-works.htm) <br>
