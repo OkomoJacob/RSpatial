@@ -1,4 +1,4 @@
-## Green Coverage Index - GCI
+## Moisture Stress Index - MSI
 
 
 ### Resources
