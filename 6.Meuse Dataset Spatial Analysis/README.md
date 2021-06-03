@@ -41,6 +41,11 @@ When lag is between 100 meters for this case, the correlation is quite strong (i
 - Experimental variogram can be viewed as a discrete function calculated using a measure of variability between points at various distances.
 - The ∼1 defines a single constant mean coefficient model: Z(s)=μ+ϵ(s), where s is the location.
 
+I then randomly allocate the zinc concentration to different locations and see the experimental variogram, where this should be no spatial correlation. We see the variogram is flat.
+
+<!-- Flat variogram -->
+<img src =>
+
 ### Acknowledgements & References
 1. [How IDW really works](https://pro.arcgis.com/en/pro-app/latest/help/analysis/geostatistical-analyst/how-inverse-distance-weighted-interpolation-works.htm) <br>
 2. [Spatial Analysis on Meuse Dataset](http://statweb.lsu.edu/faculty/li/IIT/spatial.html) <br>
