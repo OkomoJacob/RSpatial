@@ -36,7 +36,7 @@ hscat(log(zinc)~1,meuse,(0:9)*100)
 #Experimental Variogram
 plot(variogram(log(zinc)~1,meuse),type="h")
 
-
+# Randomly allocate the zinc concentration to different locations and see the relatively flat experimental variogram, showing no correlations.
 
 
 
