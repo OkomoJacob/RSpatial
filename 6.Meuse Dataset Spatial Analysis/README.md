@@ -9,12 +9,12 @@ The Meuse River dataset we used here is included in `sp` package in R, which pro
 ### Non-geostatistical approaches
 We can however predict the zinc concentration using non-geostatistical methods, such as [Inverse Distance Weighted Interpolation (IDW)](https://pro.arcgis.com/en/pro-app/latest/help/analysis/geostatistical-analyst/how-inverse-distance-weighted-interpolation-works.htm):
 <!-- The IDWW formular -->
-<img src= https://github.com/OkomoJacob/0x520x/blob/main/2.mySDM/meuseDataset%20Analysis/images/IDW%20interpolation.PNG>
+<img src= https://github.com/OkomoJacob/0x520x/blob/main/6.Meuse%20Dataset%20Spatial%20Analysis/images/IDW%20interpolation.PNG>
 
 The [idp parameter]() in function idw is the inverse (Euclidean) distance weighting power p. Large value of idp is similar to small value of k in k-nearest neighbors (KNN).
 
 <!-- The terminal output -->
-<img src = https://github.com/OkomoJacob/0x520x/blob/main/2.mySDM/meuseDataset%20Analysis/images/asDataFrame.PNG>
+<img src = https://github.com/OkomoJacob/0x520x/blob/main/6.Meuse%20Dataset%20Spatial%20Analysis/images/asDataFrame.PNG>
 
 Ideally, IDW interpolation (with small `p`) often results in maps that are close to kriged maps when a variogram is isotropic with no or small nugget value (i.e. [strong spatial autocorrrelation]()). Since IDW only use distance information, it ignores the spatial configuration of the samples (e.g. an anisotropic variogram). In addition, since the weights are always between 0 and 1, interpolated values never fall outside the range of data.
 
