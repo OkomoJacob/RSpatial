@@ -20,7 +20,7 @@ L8_b1
 L8_b4 <- raster("D:/STUDY/4.GIS/G I S 4.1/2.Geostats/0x520x/INPUT/L8/168061-L82019/LC08_B4.TIF")
 L8_b4
 
-# Plot the raster band on the sidepannel
+# Plot the raster band on the side pannel
 ?plot
 plot(L8_b1, main = "Landsat 8, Band 1")
 
