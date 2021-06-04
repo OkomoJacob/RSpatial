@@ -28,15 +28,13 @@ plot(L8_b1, main = "Landsat 8, Band 1")
 ?dim
 dim(L8_b1)		
 
-# For batch processing, preset your Working directory
-setwd("D:/Landsat_image/LT05_L1TP_139046_20050303")
+# For batch processing, preset your .tif directory
+setwd("D:/STUDY/4.GIS/G I S 4.1/2.Geostats/0x520x/INPUT/L8/168061-L82019")
 getwd()
 
-
-
-#Read bulk data
-bands<-list.files(pattern=".TIF")
-bands
+#Bulk read all the .tif raster images in that dir
+allBands <- list.files(pattern = ".TIF")
+allBands
 bands[[2]]      # select layer2 from list
 
 band2<-raster(bands[[2]])
