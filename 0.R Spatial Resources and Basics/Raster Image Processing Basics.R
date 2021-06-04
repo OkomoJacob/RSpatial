@@ -42,7 +42,6 @@ allBands[[10]]
 band8 <- raster(bands[[10]])
 
 # Preprocessing : Layerstack, bandSelection, plot
-#Layer stack; band selection; plot
 sfcc<-stack(bands[1],bands[2],bands[3],bands[4],bands[5],bands[7])
 sfcc
 sfcc[[4]]      # select layer 4 from stack
