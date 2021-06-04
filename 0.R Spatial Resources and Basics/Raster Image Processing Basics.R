@@ -23,8 +23,10 @@ L8_b4
 # Plot the raster band on the sidepannel
 ?plot
 plot(L8_b1)
+
+# Obtain the dimension(nrow, ncol, bands) of data
 ?dim
-dim(L8_b1)		#dimension of data, row, column and band
+dim(L8_b1)		
 
 
 #Set Working directory
