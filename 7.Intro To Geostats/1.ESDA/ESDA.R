@@ -36,14 +36,19 @@ getOutlier <- function(dt, var){
   
   # Tally the new NA
   na2 <- sum(is.na(newNA))
-    
+  
+  # Replace outliers with median
+  var_name <- ifelse(var_name %in% outlier, md1, var_name)
+  
+  # Cleaned boxplot & Histogram, Outliers removed
+  boxplot(var_name, main = "Cleaned Data, OutlierFree")
+  hit(var_name, main = "Cleaned Data, No Outliers", xlab = deparse(substitute(var)), ylab = "Frequency")
+  title("Outlier Check", outer = TRUE)
+  
+  # Report ideintified number of outliers
+  cat("Outlier Identified: ", na2 - na1, "numbers", "\n")
 }  
 
-#   var_name <- ifelse(var_name %in% outlier, md1, var_name) #Replace outliers by median
-#   boxplot(var_name, main="Without outliers")    #Boxplot without outliers
-#   hist(var_name, main="Without outliers", xlab=deparse(substitute(var)), ylab="Frequency") #Histogram without outliers
-#   title("Outlier Check", outer=TRUE)
-#   #Print identified number of outliers similar to print(paste("Outliers identified:", na2 - na1, "n"))
 #   cat("Outliers identified:", na2 - na1, "numbers", "\n") 
 #   # compute the proportion of outliers in data rounded to 1 decimal place
 #   cat("Propotion (%) of outliers:", round((na2 - na1) / sum(!is.na(var_name))*100, 1), "\n") 
