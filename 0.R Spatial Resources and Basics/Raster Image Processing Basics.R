@@ -34,12 +34,14 @@ getwd()
 
 #Bulk read all the .tif raster images in that dir
 allBands <- list.files(pattern = ".TIF")
-allBands
-bands[[2]]      # select layer2 from list
+length(allBands)
 
-band2<-raster(bands[[2]])
+# select layer2 from list
+allBands[[10]]
 
+band8 <- raster(bands[[10]])
 
+# Preprocessing : Layerstack, bandSelection, plot
 #Layer stack; band selection; plot
 sfcc<-stack(bands[1],bands[2],bands[3],bands[4],bands[5],bands[7])
 sfcc
