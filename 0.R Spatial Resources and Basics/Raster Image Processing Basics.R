@@ -1,4 +1,4 @@
-#To install packages
+# To install packages
 install.packages("raster")
 install.packages("rgdal")
 
@@ -6,7 +6,7 @@ install.packages("rgdal")
 library(raster)     #raster
 library(rgdal)      #vector
 
-#Read and plot data (LANDSAT 5 Data)
+#Read and plot data (L8 Data)
 a<-"D:/Landsat_image/LT05_L1TP_139046_20050303/LT05_L1TP_139046_20050303_20161128_01_T1_B1.TIF"
 a
 ??raster
