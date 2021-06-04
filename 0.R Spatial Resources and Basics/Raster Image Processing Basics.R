@@ -1,28 +1,30 @@
-# To install packages
+# Install the required packages
 install.packages("raster")
 install.packages("rgdal")
 
-#Add Library
+# Import the packages for raster img analysis
 library(raster)     #raster
 library(rgdal)      #vector
 
 #Read and plot data (L8 Data)
-L8_b1<-"D:/STUDY/4.GIS/G I S 4.1/6.RS Applications/Assignments/Tanzania/INPUT/L8/168061-L82019/LC08_B1.TIF"
+L8_b1 <- "D:/STUDY/4.GIS/G I S 4.1/2.Geostats/0x520x/INPUT/L8/168061-L82019/LC08_B1.TIF"
 
 # Have a look at data type
 class(L8_b1)
 
-# Transform into raster vector layer
+# Transform into raster layer
 ??raster
-a1<-raster(a)
-a1
+L8_b1 <- raster(L8_b1)
+L8_b1
 
-a4<-raster("D:/Landsat_image/LT05_L1TP_139046_20050303/LT05_L1TP_139046_20050303_20161128_01_T1_B4.TIF")
-a4
+L8_b4 <- raster("D:/STUDY/4.GIS/G I S 4.1/2.Geostats/0x520x/INPUT/L8/168061-L82019//LC08_B4.TIF")
+L8_b4
+
+# Plot the raster band on the sidepannel
 ?plot
-plot(a4)
+plot(L8_b1)
 ?dim
-dim(a4)		#dimension of data, row, column and band
+dim(L8_b1)		#dimension of data, row, column and band
 
 
 #Set Working directory
