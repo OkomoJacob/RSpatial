@@ -17,19 +17,18 @@ class(L8_b1)
 L8_b1 <- raster(L8_b1)
 L8_b1
 
-L8_b4 <- raster("D:/STUDY/4.GIS/G I S 4.1/2.Geostats/0x520x/INPUT/L8/168061-L82019//LC08_B4.TIF")
+L8_b4 <- raster("D:/STUDY/4.GIS/G I S 4.1/2.Geostats/0x520x/INPUT/L8/168061-L82019/LC08_B4.TIF")
 L8_b4
 
 # Plot the raster band on the sidepannel
 ?plot
-plot(L8_b1)
+plot(L8_b1, main = "Landsat 8, Band 1")
 
 # Obtain the dimension(nrow, ncol, bands) of data
 ?dim
 dim(L8_b1)		
 
-
-#Set Working directory
+# For batch processing, preset your Working directory
 setwd("D:/Landsat_image/LT05_L1TP_139046_20050303")
 getwd()
 
