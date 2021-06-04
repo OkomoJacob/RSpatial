@@ -7,8 +7,12 @@ library(raster)     #raster
 library(rgdal)      #vector
 
 #Read and plot data (L8 Data)
-a<-"D:/Landsat_image/LT05_L1TP_139046_20050303/LT05_L1TP_139046_20050303_20161128_01_T1_B1.TIF"
-a
+L8_b1<-"D:/STUDY/4.GIS/G I S 4.1/6.RS Applications/Assignments/Tanzania/INPUT/L8/168061-L82019/LC08_B1.TIF"
+
+# Have a look at data type
+class(L8_b1)
+
+# Transform into raster vector layer
 ??raster
 a1<-raster(a)
 a1
