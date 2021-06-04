@@ -37,8 +37,12 @@ hscat(log(zinc)~1,meuse,(0:9)*100)
 plot(variogram(log(zinc)~1,meuse),type="h")
 
 # Randomly allocate the zinc concentration to different locations and see the relatively flat experimental variogram, showing no correlations.
-
-
+data <- meuse
+n <- nrow(meuse)
+set.seed(15)
+ind <- sample(1:n, size=n, replace = F)
+data$zinc <- meuse$zinc[ind]
+plot(variogram(log(zinc)~1, data), type="l")
 
 
 
