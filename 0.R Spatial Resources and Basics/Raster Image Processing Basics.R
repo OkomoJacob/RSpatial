@@ -53,7 +53,6 @@ plotRGB(sfcc, 4,3,2, stretch='lin')
 ?writeRaster
 writeRaster(sfcc, "Landsat_5.tif", format="GTiff", datatype='INT1U', overwrite=TRUE)
 
-
 #READ LANDSAT 8 Data
 setwd("D:/Landsat_image/LC08_L1TP_139046_20150227")
 getwd()
