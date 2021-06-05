@@ -70,18 +70,6 @@ plotRGB(lyrStack,
 # Save the file to disk
 writeRaster(lyrStack, "L8LayerStack.tif", format="GTiff", datatype='INT2U', overwrite=TRUE)
 
-
-#Layer stack; band selection; plot
-sfcc<-stack(bands[4],bands[5],bands[6],bands[7])
-sfcc
-sfcc[[4]]      # select layer 4 from stack
-plot(sfcc[[4]])
-plotRGB(sfcc, 4,3,2)
-plotRGB(sfcc, 4,3,2, scale=65535)
-plotRGB(sfcc, 4,3,2, scale=65535, stretch='lin')
-writeRaster(sfcc, "Landsat_8.tif", 
-            format="GTiff", datatype='INT2U', overwrite=TRUE)
-
-
+# Load the Layerstacked Image into R Studio
 L8<-brick("Landsat_8.tif")
 L8
