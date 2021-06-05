@@ -34,7 +34,7 @@ getwd()
 #Bulk read all the .tif raster images in that dir
 allBands <- list.files(pattern = ".TIF")
 length(allBands)
-
+allBands
 # select layer8 from list
 allBands[[8]]
 metaBand8 <- raster(allBands[[10]])
@@ -51,7 +51,7 @@ metaLyrStack <- lyrStack
 metaLyrStack
 
 # Select RED(B5) from stack
-lyrStack[[7]] 
+lyrStack[[4]] 
 plot(lyrStack[[7]], main = "Landsat 8 Band 5")
 
 # Plot RGB Natural color
@@ -69,15 +69,6 @@ plotRGB(lyrStack,
 
 # Save the file to disk
 writeRaster(lyrStack, "L8LayerStack.tif", format="GTiff", datatype='INT2U', overwrite=TRUE)
-
-#READ LANDSAT 8 Data
-setwd("D:/Landsat_image/LC08_L1TP_139046_20150227")
-getwd()
-
-#Read bulk data
-bands<-list.files(pattern=".TIF")
-bands
-bands[[4]]      # select Blue band from list
 
 
 #Layer stack; band selection; plot
