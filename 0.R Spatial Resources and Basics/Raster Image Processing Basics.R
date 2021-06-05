@@ -51,8 +51,10 @@ metaLyrStack
 # Select RED(B5) from stack
 lyrStack[[7]] 
 plot(lyrStack[[7]], main = "Landsat 8 Band 5")
-plotRGB(sfcc, 4,3,2)
-plotRGB(sfcc, 4,3,2, stretch='lin')
+
+# Plot RGB Natural color
+plotRGB(lyrStack, 4,3,2, scale=65535, main = "L8 Natural Color: BGR")
+plotRGB(lyrStack, 4,3,2, stretch='lin')
 ?plotRGB
 ?writeRaster
 writeRaster(sfcc, "Landsat_5.tif", format="GTiff", datatype='INT1U', overwrite=TRUE)
