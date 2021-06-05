@@ -41,7 +41,7 @@ metaBand8 <- raster(allBands[[10]])
 metaBand8
 
 # Preprocessing : Layerstack, bandSelection, plot
-sfcc<-stack(bands[1],bands[2],bands[3],bands[4],bands[5],bands[7])
+lyrStack <- stack(bands[1],bands[2],bands[3],bands[4],bands[5],bands[7])
 sfcc
 sfcc[[4]]      # select layer 4 from stack
 plot(sfcc[[3]])
