@@ -38,7 +38,6 @@ length(allBands)
 
 # select layer2 from list
 allBands[[10]]
-
 band8 <- raster(bands[[10]])
 
 # Preprocessing : Layerstack, bandSelection, plot
