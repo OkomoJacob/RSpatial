@@ -71,5 +71,5 @@ plotRGB(lyrStack,
 writeRaster(lyrStack, "L8LayerStack.tif", format="GTiff", datatype='INT2U', overwrite=TRUE)
 
 # Load the Layerstacked Image into R Studio
-L8LyrStacked <- brick("Landsat_8.tif")
-L8
+L8LyrStacked <- brick("D:/STUDY/4.GIS/G I S 4.1/2.Geostats/0x520x/OUTPUT/L8LayerStack.tif")
+L8LyrStacked
