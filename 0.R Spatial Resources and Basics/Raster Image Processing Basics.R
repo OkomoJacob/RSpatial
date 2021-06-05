@@ -1,6 +1,5 @@
 # Install the required packages
-install.packages("raster")
-install.packages("rgdal")
+install.packages(c("raster", "rgdal"))
 
 # Import the packages for raster img analysis
 library(raster)     #raster
@@ -36,9 +35,10 @@ getwd()
 allBands <- list.files(pattern = ".TIF")
 length(allBands)
 
-# select layer2 from list
+# select layer8 from list
 allBands[[10]]
-band8 <- raster(bands[[10]])
+metaBand8 <- raster(allBands[[10]])
+metaBand8
 
 # Preprocessing : Layerstack, bandSelection, plot
 sfcc<-stack(bands[1],bands[2],bands[3],bands[4],bands[5],bands[7])
