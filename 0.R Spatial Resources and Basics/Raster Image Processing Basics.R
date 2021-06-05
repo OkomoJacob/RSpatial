@@ -48,9 +48,9 @@ lyrStack <- stack(allBands[1], allBands[4], allBands[5], allBands[6], allBands[7
 metaLyrStack <- lyrStack
 metaLyrStack
 
-# Select layer 4 from stack
-lyrStack[[4]] 
-plot(sfcc[[3]])
+# Select RED(B5) from stack
+lyrStack[[7]] 
+plot(lyrStack[[7]], main = "Landsat 8 Band 5")
 plotRGB(sfcc, 4,3,2)
 plotRGB(sfcc, 4,3,2, stretch='lin')
 ?plotRGB
@@ -65,7 +65,6 @@ getwd()
 bands<-list.files(pattern=".TIF")
 bands
 bands[[4]]      # select Blue band from list
-
 
 
 #Layer stack; band selection; plot
