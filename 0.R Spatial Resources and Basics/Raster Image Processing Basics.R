@@ -43,9 +43,11 @@ metaBand8
 # 1, 2, 3,4,5,6,7 
 allBands[[1]] allBands[[4]] allBands[[5]] allBands[[6]] allBands[[7]] allBands[[8]] allBands[[9]]
 # Preprocessing : Layerstack, bandSelection, plot
-lyrStack <- stack(bands[1],bands[2],bands[3],bands[4],bands[5],bands[7])
+lyrStack <- stack(bands[1],bands[4],bands[5],bands[6],bands[7],bands[8],bands[9])
 lyrStack
-sfcc[[4]]      # select layer 4 from stack
+
+# Select layer 4 from stack
+sfcc[[4]] 
 plot(sfcc[[3]])
 plotRGB(sfcc, 4,3,2)
 plotRGB(sfcc, 4,3,2, stretch='lin')
