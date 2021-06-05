@@ -6,7 +6,7 @@ library(raster)     #raster
 library(rgdal)      #vector
 
 #Read and plot data (L8 Data)
-L8_b1 <- "D:/STUDY/4.GIS/G I S 4.1/2.Geostats/0x520x/INPUT/L8/168061-L82019/LC08_B1.TIF"
+L8_b1 <- "D:/STUDY/4.GIS/G I S 4.1/2.Geostats/0x520x/INPUT/L8/168061-L82019/LC08_B01.TIF"
 
 # Have a look at data type
 class(L8_b1)
@@ -16,7 +16,7 @@ class(L8_b1)
 L8_b1 <- raster(L8_b1)
 L8_b1
 
-L8_b4 <- raster("D:/STUDY/4.GIS/G I S 4.1/2.Geostats/0x520x/INPUT/L8/168061-L82019/LC08_B4.TIF")
+L8_b4 <- raster("D:/STUDY/4.GIS/G I S 4.1/2.Geostats/0x520x/INPUT/L8/168061-L82019/LC08_B04.TIF")
 L8_b4
 
 # Plot the raster band on the side pannel
@@ -64,7 +64,9 @@ plotRGB(lyrStack,
 # What does plotRGB & writeRaster function does?
 ?plotRGB
 ?writeRaster
-writeRaster(sfcc, "Landsat_5.tif", format="GTiff", datatype='INT1U', overwrite=TRUE)
+
+# Save the file to disk
+writeRaster(lyrStack, "L8LayerStack.tif", format="GTiff", datatype='INT2U', overwrite=TRUE)
 
 #READ LANDSAT 8 Data
 setwd("D:/Landsat_image/LC08_L1TP_139046_20150227")
