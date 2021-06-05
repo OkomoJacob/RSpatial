@@ -40,9 +40,11 @@ allBands[[10]]
 metaBand8 <- raster(allBands[[10]])
 metaBand8
 
+allBands[[1]] allBands[[2]] allBands[[3]] allBands[[4]] allBands[[5]] allBands[[6]] allBands[[7] allBands[[8]]
+
 # Preprocessing : Layerstack, bandSelection, plot
 lyrStack <- stack(bands[1],bands[2],bands[3],bands[4],bands[5],bands[7])
-sfcc
+lyrStack
 sfcc[[4]]      # select layer 4 from stack
 plot(sfcc[[3]])
 plotRGB(sfcc, 4,3,2)
