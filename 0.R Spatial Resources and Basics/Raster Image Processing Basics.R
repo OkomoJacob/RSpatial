@@ -56,7 +56,12 @@ plot(lyrStack[[7]], main = "Landsat 8 Band 5")
 plotRGB(lyrStack, 4,3,2, scale=65535, main = "L8 Natural Color: BGR")
 
 # Apply linear stretch for haze reduction
-plotRGB(lyrStack, 4,3,2, stretch='lin')
+plotRGB(lyrStack,
+        r = 4, g = 3, b = 2, 
+        scale=800,
+        stretch = "lin")
+
+# What does plotRGB & writeRaster function does?
 ?plotRGB
 ?writeRaster
 writeRaster(sfcc, "Landsat_5.tif", format="GTiff", datatype='INT1U', overwrite=TRUE)
