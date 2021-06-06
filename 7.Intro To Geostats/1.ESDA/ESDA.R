@@ -1,7 +1,7 @@
 #EDA to check the trend, normality, deviations: Histograms, boxplots,measure of central tendency, dispersion
 rm(list = ls(all=TRUE)) #clear memory
 
-#Load existing/install missing pckges
+#Load existing/install missing pckges, use :: to access a specific fxn from a package
 if (!require("pacman")) install.packages("pacman")
 pacman::p_load(gstat, sp)
 data(meuse)
