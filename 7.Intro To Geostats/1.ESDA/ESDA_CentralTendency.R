@@ -1,5 +1,6 @@
 #Measures of Cental Tendency
 
+library(gstat)
 rm(list=ls(all=TRUE)) # Clear memory
 #Load existing/install missing libraries
 if (!require("pacman")) install.packages("pacman")
@@ -44,8 +45,29 @@ cat("The covariance btn Cu & Pb is: ", coVar)
 corL <- cor(copper, lead)
 cat("The correlatio btn Cu & Pb  is: ", corL)
 
+# Kurtosis and skewness
+pacman::p_load(e1071)
+Kurt <- kurtosis(copper)
 
+# Distribution
 
+histogram <- hist(copper, prob=TRUE,breaks=20,main="Normal distribution curve over histogram", xlab= "Copper")
+histogram
+curve(dnorm(x, mean=mean(copper), sd=sd(copper)), add=TRUE)
+abline(v=mean(copper), col="red")
+text(mean(copper),0.04,"Mean", col = "red", adj = c(0, -.1))
+abline(v=median(copper), col="blue")
+text(median(copper),0.04,"Median", col = "blue", adj = c(1, -.1))
 
+# Coeff of variation
+# ----------------------------------
+# Write the function to compute the coefficient of variation
+cv <- function(x) sd(x)/mean(x)
 
-
+cvCu <- cv(meuse$copper)
+cat("The coeff of variation of Cu : ",cvCu)
+# lapply(meuse,cv)
+# Obtain the dimension of the data
+dim(meuse)
+# Obtain the names of the variables
+names(meuse)
