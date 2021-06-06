@@ -47,40 +47,44 @@ getOutlier <- function(dt, var){
   
   # Report ideintified number of outliers
   cat("Outlier Identified: ", na2 - na1, "numbers", "\n")
-}  
+  
+  # compute the proportion of outliers in data rounded to 1 decimal place
+  cat("Propotion (%) of outliers:", round((na2 - na1) / sum(!is.na(var_name))*100, 1), "\n")
+  cat("Mean of the outliers:", round(mo, 2), "\n")
+  m2    <- mean(var_name, na.rm = T)    #Mean after removing outliers
+  md2 <- median(var_name, na.rm = T)  #Median after removing outliers
+  cat("Mean without removing outliers:", round(m1, 2), "\n")
+  cat("Mean if we remove outliers:", round(m2, 2), "\n")
+  cat("Median without removing outliers:", round(md1, 2), "\n")
+  cat("Median if we remove outliers:", round(md2, 2), "\n")
+  #response <- readline(prompt="Do you want to remove outliers and to replace with  data mean? [yes/no]: ") #Interactive input
+  response <- "y"
+  
+  # Conditional Operator
+  if(response == "y" | response == "yes"){
+    
+    originalData <- na.omit(originalData) #remove missing /not applicable values
+    #replace outliers with mean
+    CleanData <- ifelse(originalData %in% outlier, md1, originalData)
+    CleanData[is.na(CleanData)] <- md1  #Replace all missing values with 0
+    cat("Outliers successfully replaced with median ", na2 - na1, "\n")
+    cat("Missing data successfully replaced with median ", na1, "\n")
+    write.csv(CleanData, "CleanedData.csv")
+    return(invisible(CleanData))
+  }
+  if(response == "n" | response == "no"){
+    cat(na2 - na1, " outliers retained", "\n")
+    write.csv(originalData, "CleanedData.csv")
+    return(invisible(originalData))
+  }
+}
+CleanData     <- Data #create another variable to hold cleaned data
+CleanData$om    <- Getoutlier(Data, om) # remove outliers from organic matter (OM)
 
-#   cat("Outliers identified:", na2 - na1, "numbers", "\n") 
-#   # compute the proportion of outliers in data rounded to 1 decimal place
-#   cat("Propotion (%) of outliers:", round((na2 - na1) / sum(!is.na(var_name))*100, 1), "\n") 
-#   cat("Mean of the outliers:", round(mo, 2), "\n")
-#   m2    <- mean(var_name, na.rm = T)    #Mean after removing outliers
-#   md2 <- median(var_name, na.rm = T)  #Median after removing outliers
-#   cat("Mean without removing outliers:", round(m1, 2), "\n")
-#   cat("Mean if we remove outliers:", round(m2, 2), "\n")
-#   cat("Median without removing outliers:", round(md1, 2), "\n")
-#   cat("Median if we remove outliers:", round(md2, 2), "\n")
-#   #response <- readline(prompt="Do you want to remove outliers and to replace with  data mean? [yes/no]: ") #Interactive input
-#   response <- "y"     
-#   if(response == "y" | response == "yes"){
-#     #originalData <- na.omit(originalData) #remove missing /not applicable values
-#     #replace outliers with mean
-#     CleanData <- ifelse(originalData %in% outlier, md1, originalData) 
-#     CleanData[is.na(CleanData)] <- md1  #Replace all missing values with 0
-#     cat("Outliers successfully replaced with median ", na2 - na1, "\n")
-#     cat("Missing data successfully replaced with median ", na1, "\n")
-#     write.csv(CleanData, "CleanedData.csv")
-#     return(invisible(CleanData))
-#   }
-#   if(response == "n" | response == "no"){
-#     cat(na2 - na1, " outliers retained", "\n")
-#     write.csv(originalData, "CleanedData.csv")
-#     return(invisible(originalData))
-#   }
-# }
-# CleanData     <- Data #create another variable to hold cleaned data
-# CleanData$om    <- Getoutlier(Data, om) # remove outliers from organic matter (OM)
-# 
-# 
+
+
+
+
 # 
 # 
 # 
