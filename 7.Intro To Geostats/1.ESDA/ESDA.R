@@ -59,19 +59,20 @@ getOutlier <- function(dt, var){
     cat("Median without removing outliers:", round(md1, 2), "\n")
   cat("Median if we remove outliers:", round(md2, 2), "\n")
   #response <- readline(prompt="Do you want to remove outliers and to replace with  data mean? [yes/no]: ") #Interactive input
-  response <- "y"
+    response <- "y"
   
-  # Conditional Operator
-  if(response == "y" | response == "yes"){
+    # Conditional Operator
+    if(response == "y" | response == "yes"){
     
-    originalData <- na.omit(originalData) #remove missing /not applicable values
-    #replace outliers with mean
-    CleanData <- ifelse(originalData %in% outlier, md1, originalData)
-    CleanData[is.na(CleanData)] <- md1  #Replace all missing values with 0
-    cat("Outliers successfully replaced with median ", na2 - na1, "\n")
-    cat("Missing data successfully replaced with median ", na1, "\n")
-    write.csv(CleanData, "CleanedData.csv")
-    return(invisible(CleanData))
+        originalData <- na.omit(originalData) #remove missing /not applicable values
+        
+        #replace outliers with mean
+        CleanData <- ifelse(originalData %in% outlier, md1, originalData)
+        CleanData[is.na(CleanData)] <- md1  #Replace all missing values with 0
+        cat("Outliers successfully replaced with median ", na2 - na1, "\n")
+        cat("Missing data successfully replaced with median ", na1, "\n")
+        write.csv(CleanData, "CleanedData.csv")
+        return(invisible(CleanData))
   }
   if(response == "n" | response == "no"){
     cat(na2 - na1, " outliers retained", "\n")
