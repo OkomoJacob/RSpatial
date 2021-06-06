@@ -1,7 +1,8 @@
 # Normal Distribution
 
-x<-rnorm(100000,mean=10, sd=2) 
-hist(x,breaks=150,xlim=c(0,20),freq=FALSE)
+x <- rnorm(100000,mean=10, sd=2) 
+histogramPlot <- hist(x,breaks=150,xlim=c(0,20),freq=FALSE)
+histogramPlot
 abline(v=10, lwd=5)
 abline(v=c(4,6,8,12,14,16), lwd=3,lty=3)
 
@@ -12,6 +13,6 @@ y <- pnorm(x, mean = 2.5, sd = 2)
 # Plot the graph.
 plot(x,y)
 
-
+# Normal QQ plots
 qqnorm(copper, main='Copper in Meuse River')
 qqline(copper)
