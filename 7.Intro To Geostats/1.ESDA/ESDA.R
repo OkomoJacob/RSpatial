@@ -35,11 +35,11 @@ getOutlier <- function(dt, var){
   #Replace outliers by NA of dataset using matching %in% test for ease of counting
   newNA <- ifelse(var_name %in% outlier, NA, var_name)
   
-  # Tally the new NA
-  na2 <- sum(is.na(newNA))
+    # Tally the new NA
+    na2 <- sum(is.na(newNA))
   
-  # Replace outliers with median
-  var_name <- ifelse(var_name %in% outlier, md1, var_name)
+    # Replace outliers with median
+    var_name <- ifelse(var_name %in% outlier, md1, var_name)
   
   # Cleaned boxplot & Histogram, Outliers removed
   boxplot(var_name, main = "Cleaned Data, OutlierFree")
@@ -53,7 +53,7 @@ getOutlier <- function(dt, var){
   cat("Propotion (%) of outliers:", round((na2 - na1) / sum(!is.na(var_name))*100, 1), "\n")
   cat("Mean of the outliers:", round(mo, 2), "\n")
   m2    <- mean(var_name, na.rm = T)    #Mean after removing outliers
-  md2 <- median(var_name, na.rm = T)  #Median after removing outliers
+    md2 <- median(var_name, na.rm = T)  #Median after removing outliers
   cat("Mean without removing outliers:", round(m1, 2), "\n")
   cat("Mean if we remove outliers:", round(m2, 2), "\n")
   cat("Median without removing outliers:", round(md1, 2), "\n")
