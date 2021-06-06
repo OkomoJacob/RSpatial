@@ -8,7 +8,7 @@ data(meuse)
 df <- meuse
 knitr::kable(head(df, n=5), align = 'l')
 
-#Outlier Detection
+# outlier Detection
 ##-> boxplot.stats()$cut, to identify and remove data 1.5<x>1.5 , where x is the IQR
 
 Data <- meuse
