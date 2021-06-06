@@ -12,7 +12,7 @@ knitr::kable(head(df, n=5), align = 'l')
 ##-> boxplot.stats()$cut, to identify and remove data 1.5<x>1.5 , where x is the IQR
 
 Data <- meuse
-getOutlier <- function(dt, var){
+Getoutlier <- function(dt, var){
   var_name <- eval(substitute(var), eval(dt))
     origData <- var_name
   na1 <- sum(is.na(var_namee))  #count missing values
@@ -30,7 +30,7 @@ getOutlier <- function(dt, var){
   outlier <- boxplot.stats(var_name)$out
   
   # Mean of outliers
-  mean <- mean(outlier)
+  meanOutlier <- mean(outlier)
   
   #Replace outliers by NA of dataset using matching %in% test for ease of counting
   newNA <- ifelse(var_name %in% outlier, NA, var_name)
@@ -73,13 +73,27 @@ getOutlier <- function(dt, var){
         cat("Missing data successfully replaced with median ", na1, "\n")
         write.csv(CleanData, "CleanedData.csv")
         return(invisible(CleanData))
-  }
-  if(response == "n" | response == "no"){
-    cat(na2 - na1, " outliers retained", "\n")
-    write.csv(originalData, "CleanedData.csv")
-    return(invisible(originalData))
-  }
+        }
+    if(response == "n" | response == "no"){
+        cat(na2 - na1, " outliers retained", "\n")
+        write.csv(originalData, "CleanedData.csv")
+        return(invisible(originalData))
+    }
 }
 CleanData     <- Data #create another variable to hold cleaned data
 CleanData$om    <- Getoutlier(Data, om) # remove outliers from organic matter (OM)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
