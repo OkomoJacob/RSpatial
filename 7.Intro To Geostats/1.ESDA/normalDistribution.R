@@ -1,6 +1,6 @@
 # Normal Distribution
 
-x <- rnorm(100000,mean=10, sd=2) 
+x <- rnorm(100 ,mean=5, sd=0.5) 
 histogramPlot <- hist(x,breaks=150,xlim=c(0,20),freq=FALSE)
 histogramPlot
 abline(v=10, lwd=5)
