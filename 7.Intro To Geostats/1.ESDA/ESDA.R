@@ -56,7 +56,7 @@ getOutlier <- function(dt, var){
     md2 <- median(var_name, na.rm = T)  #Median after removing outliers
   cat("Mean without removing outliers:", round(m1, 2), "\n")
   cat("Mean if we remove outliers:", round(m2, 2), "\n")
-  cat("Median without removing outliers:", round(md1, 2), "\n")
+    cat("Median without removing outliers:", round(md1, 2), "\n")
   cat("Median if we remove outliers:", round(md2, 2), "\n")
   #response <- readline(prompt="Do you want to remove outliers and to replace with  data mean? [yes/no]: ") #Interactive input
   response <- "y"
