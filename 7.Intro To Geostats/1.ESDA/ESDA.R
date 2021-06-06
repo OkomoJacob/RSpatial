@@ -20,7 +20,7 @@ getOutlier <- function(dt, var){
     m1 <- mean(var_name, na.rm = T)
     windows() #prepare plot window
   par(mfrow = c(2, 2), mai = c(1, 1, 0.25, 0.25), oma = c(0, 0, 3, 0))
-  layout(matrix(c(1, 1, 1, 1), nrow = 4, ncol = 1, byrow = TRUE), widths = c(3, 1), heights = c(1, 2))
+    layout(matrix(c(1, 1, 1, 1), nrow = 4, ncol = 1, byrow = TRUE), widths = c(3, 1), heights = c(1, 2))
   
   # First boxplot,Hist with outliers
   boxplot(var_name, main="Unwrangled Data")
