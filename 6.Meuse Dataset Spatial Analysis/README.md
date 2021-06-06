@@ -49,4 +49,4 @@ I then randomly allocate the zinc concentration to different locations and see t
 ### Acknowledgements & References
 1. [How IDW really works](https://pro.arcgis.com/en/pro-app/latest/help/analysis/geostatistical-analyst/how-inverse-distance-weighted-interpolation-works.htm) <br>
 2. [Spatial Analysis on Meuse Dataset](http://statweb.lsu.edu/faculty/li/IIT/spatial.html) <br>
-3. 
+3. [A Boundary Plane Approach to Map Hotspots for Achievable Soil Carbon Sequestration and Soil Fertility Improvement. Sustainability 2019, 11, 4038.](link)
