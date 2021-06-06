@@ -14,10 +14,11 @@ knitr::kable(head(df, n=5), align = 'l')
 Data <- meuse
 getOutlier <- function(dt, var){
   var_name <- eval(substitute(var), eval(dt))
-  origData <- var_name
+    origData <- var_name
   na1 <- sum(is.na(var_namee))  #count missing values
   md1 <- median(var_name, na.rm = T) #Find median without NA value
-  windows() #prepare plot window
+    m1 <- mean(var_name, na.rm = T)
+    windows() #prepare plot window
   par(mfrow = c(2, 2), mai = c(1, 1, 0.25, 0.25), oma = c(0, 0, 3, 0))
   layout(matrix(c(1, 1, 1, 1), nrow = 4, ncol = 1, byrow = TRUE), widths = c(3, 1), heights = c(1, 2))
   
@@ -81,10 +82,3 @@ getOutlier <- function(dt, var){
 CleanData     <- Data #create another variable to hold cleaned data
 CleanData$om    <- Getoutlier(Data, om) # remove outliers from organic matter (OM)
 
-
-
-
-
-# 
-# 
-# 
