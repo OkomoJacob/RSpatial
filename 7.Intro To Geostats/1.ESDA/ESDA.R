@@ -21,7 +21,7 @@ df <- meuse
 knitr::kable(head(df, n=3), align = 'l')
 
 
-#OUTLIER
+#DETECT OUTLIER
 Data <- meuse
 Getoutlier   <- function(dt, var) {
   var_name   <- eval(substitute(var),eval(dt))
@@ -38,6 +38,7 @@ Getoutlier   <- function(dt, var) {
   hist(var_name, main="With outliers", xlab=deparse(substitute(var)), ylab="Frequency") #Plot histogram of data with outliers
   #Data points which lie beyond the extremes of the whiskers 
   outlier <- boxplot.stats(var_name)$out 
+  
   mo <- mean(outlier)       #mean of outliers
   #Replace outliers by NA of dataset using matching %in% test for ease of counting
   new_NA <- ifelse(var_name %in% outlier, NA, var_name) 
@@ -46,13 +47,16 @@ Getoutlier   <- function(dt, var) {
   boxplot(var_name, main="Without outliers")    #Boxplot without outliers
   hist(var_name, main="Without outliers", xlab=deparse(substitute(var)), ylab="Frequency") #Histogram without outliers
   title("Outlier Check", outer=TRUE)
+  
   #Print identified number of outliers similar to print(paste("Outliers identified:", na2 - na1, "n"))
   cat("Outliers identified:", na2 - na1, "numbers", "\n") 
   # compute the proportion of outliers in data rounded to 1 decimal place
   cat("Propotion (%) of outliers:", round((na2 - na1) / sum(!is.na(var_name))*100, 1), "\n") 
   cat("Mean of the outliers:", round(mo, 2), "\n")
-  m2    <- mean(var_name, na.rm = T)    #Mean after removing outliers
-  md2 <- median(var_name, na.rm = T)  #Median after removing outliers
+  
+  #Mean & Median after removing outliers
+  m2    <- mean(var_name, na.rm = T)
+  md2 <- median(var_name, na.rm = T)
   cat("Mean without removing outliers:", round(m1, 2), "\n")
   cat("Mean if we remove outliers:", round(m2, 2), "\n")
   cat("Median without removing outliers:", round(md1, 2), "\n")
