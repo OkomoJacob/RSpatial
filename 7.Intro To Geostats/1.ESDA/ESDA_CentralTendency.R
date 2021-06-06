@@ -18,15 +18,31 @@ cat("The median is ", vMedian)
 
 #3. Mode
 library(modeest)
+attach(df)
+getmode <- function(x) {
+  ux <- unique(x)
+  ux[which.max(tabulate(match(x, ux)))]
+}
 vMode <- getmode(copper)
 cat("The mode is", vMode)
 
-#4. Measures of Dispersion
+# Measures of Dispersion
+# Variance 
+data(meuse)
+varCop <- var(copper)
+cat("The variance is: ", varCop)
 
+# Standard deviation
+stdDev <- sd(copper)
+cat("The Std Deviation is: ", stdDev)
 
+# Covariance
+coVar <- cov(copper, lead)
+cat("The covariance btn Cu & Pb is: ", coVar)
 
-
-
+# correlation
+corL <- cor(copper, lead)
+cat("The correlatio btn Cu & Pb  is: ", corL)
 
 
 
