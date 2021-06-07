@@ -26,9 +26,9 @@ If you are a new member of the team and have never used [git version control](ht
 
 ``` sh
 # Download the Powepoint and Presentation files here
-git clone https://github.com/JKUATSES/2021-satellite-dev
+git clone https://github.com/OkomoJacob/0x520x
 # change your working directory into the newly downloaded files
-cd 2021-satellite-dev
+cd 0x520x
 
 ```
 
