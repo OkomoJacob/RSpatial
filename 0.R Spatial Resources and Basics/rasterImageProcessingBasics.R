@@ -4,9 +4,11 @@ install.packages(c("raster", "rgdal"))
 # Import the packages for raster img analysis
 library(raster)     #raster
 library(rgdal)      #vector
-
+setwd("D:/STUDY/4.GIS/G I S 4.1/2.Geostats/0x520x/INPUT/L8/168061-L82019")
+getwd()
 #Read and plot data (L8 Data)
-L8_b1 <- "D:/STUDY/4.GIS/G I S 4.1/2.Geostats/0x520x/INPUT/L8/168061-L82019/LC08_B01.TIF"
+
+L8_b1 <- "LC08_B01.TIF"
 
 # Have a look at data type
 class(L8_b1)
@@ -16,7 +18,7 @@ class(L8_b1)
 L8_b1 <- raster(L8_b1)
 L8_b1
 
-L8_b4 <- raster("D:/STUDY/4.GIS/G I S 4.1/2.Geostats/0x520x/INPUT/L8/168061-L82019/LC08_B04.TIF")
+L8_b4 <- raster("LC08_B04.TIF")
 L8_b4
 
 # Plot the raster band on the side panel
