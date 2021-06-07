@@ -1,10 +1,12 @@
 ## A Basic Understanding of Raster Image Preprocessing in R Language
 
-![PyPI - License](https://img.shields.io/pypi/l/django?color=orange-green)
+[![image](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+![GitHub repo size](https://img.shields.io/github/repo-size/OkomoJacob/0x520x?color=green-yellow&logo=github&logoColor=blue) 
+![GitHub language count](https://img.shields.io/github/languages/count/jkuatagges/RSpatialAnalysis?logo=visual-studio-code) 
+![GitHub top language](https://img.shields.io/github/languages/top/jkuatagges/RSpatialAnalysis)
 ![GitHub forks](https://img.shields.io/github/forks/OkomoJacob/0x520x?style=social)
 ![GitHub contributors](https://img.shields.io/github/contributors/OkomoJacob/0x520x?color=orange-green)
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/OkomoJacob/0x520x/issues)
-![GitHub repo size](https://img.shields.io/github/repo-size/OkomoJacob/0x520x-dev.svg?color=purple&style=flat)
 ![GitHub last commit](https://img.shields.io/github/last-commit/OkomoJacob/0x520x.svg?style=flat)
 ![GitHub branch checks state](https://img.shields.io/github/checks-status/OkomoJacob/0x520x/main?color=orange-green)
 
@@ -38,4 +40,4 @@ Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c6
 
 ## License
 
-This project is licensed under the `BSD 2-Clause Simplified License` - see the [LICENSE.md](https://github.com/JKUATSES/2021-satellite-dev/blob/main/LICENSE) file for details
+This project is licensed under the `BSD 2-Clause Simplified License` - see the [LICENSE.md](https://github.com/OkomoJacob/0x520x/blob/main/LICENSE) file for details
