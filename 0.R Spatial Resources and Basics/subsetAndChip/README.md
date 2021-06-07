@@ -21,9 +21,8 @@
    * Load Raster images from Disk <br>
    * View Raster Satellite image Metadata <br>
    * Plot Raster Image and View Side By Side <br>
-   * Layerstack Landsat 8 Bands 1 to 7 (30m spatial Resolution) <br>
-   * Save the Layerstacked image on Disk<br>
-   * Load the Layerstacked image from Disk using brick()<br>
+   * Subset the raster with shapefile
+   * Plot the subset
    * <br >
 
 If you are a new member of the team and have never used [git version control](http://git-scm.com/) before, we highly recommend that you familiarize yourself with it by reading [this guide](https://github.com/RoboJackets/robocup-firmware/blob/master/doc/Git.md).
