@@ -8,7 +8,7 @@ setwd("D:/STUDY/4.GIS/G I S 4.1/2.Geostats/0x520x/INPUT/L8/L8_Ngara_TZ_Ag_2020")
 getwd()
 #Read and plot data (L8 Data)
 
-L8_b1 <- "L08_B01.TIF"
+L8_b1 <- "L8_B01.TIF"
 
 # Have a look at data type
 
@@ -18,7 +18,7 @@ class(L8_b1)
 L8_b1 <- raster(L8_b1)
 L8_b1
 
-L8_b4 <- raster("LC08_B04.TIF")
+L8_b4 <- raster("L8_B04.TIF")
 L8_b4
 
 # Plot the raster band on the side panel
