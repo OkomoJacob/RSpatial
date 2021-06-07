@@ -39,7 +39,7 @@ allBands[[8]]
 metaBand8 <- raster(allBands[[10]])
 metaBand8
 
-# 1, 2, 3,4,5,6,7 
+# 1, 2, 3,4,5,6,7 Run bit by bit, not all at once
 allBands[[1]] allBands[[2]] allBands[[3]] allBands[[4]] allBands[[5]] allBands[[6]] allBands[[7]]
 
 # Preprocessing : Layerstack(All bands must have same spatial resolutions), bandSelection, plot
