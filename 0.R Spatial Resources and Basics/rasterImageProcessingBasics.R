@@ -30,9 +30,6 @@ plot(L8_b1, main = "Landsat 8, Band 1")
 dim(L8_b1)		
 
 # For batch processing, preset your .tif directory
-setwd("D:/STUDY/4.GIS/G I S 4.1/2.Geostats/0x520x/INPUT/L8/168061-L82019")
-getwd()
-
 #Bulk read all the .tif raster images in that dir
 allBands <- list.files(pattern = ".TIF")
 length(allBands)
