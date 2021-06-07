@@ -32,9 +32,10 @@ If you are a new member of the team and have never used [git version control](ht
 * `CRAN R apckages`
 * raster
 * rgdal
-```
-sh
+``` sh
+# install these packages
 install.packages(c("rgdal", "raster"))
+
 ```
 * Interests in Learning, More about R for Raster Image Analysis
 
