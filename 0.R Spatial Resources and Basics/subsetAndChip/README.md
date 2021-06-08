@@ -15,6 +15,16 @@
 
 1. Intro and Definition of terms
 2. Objectives <br >
+
+Image Processing,
+Remote Sensing,
+Landsat,
+Subset,
+Crop,Musk,Mosa,
+DN value,
+Pixel Value,
+Multispectral
+
    * Install Raster packages <br >
    * Load the packages into R <br>
    * Set and get your working directory <br>
