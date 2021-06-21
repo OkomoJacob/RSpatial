@@ -1,7 +1,6 @@
 #Measures of Cental Tendency
-
-library(gstat)
 rm(list=ls(all=TRUE)) # Clear memory
+library(gstat)
 #Load existing/install missing libraries
 if (!require("pacman")) install.packages("pacman")
 pacman::p_load(gstat,sp)
@@ -51,15 +50,17 @@ Kurt <- kurtosis(copper)
 
 # Distribution
 
-histogram <- hist(copper, prob=TRUE,breaks=20,main="Normal distribution curve over histogram", xlab= "Copper")
+histogram <- hist(copper, prob=TRUE,breaks=20,main="Normal Distr curve + Hist", xlab= "Copper")
 histogram
-curve(dnorm(x, mean=mean(copper), sd=sd(copper)), add=TRUE)
+normalCurve <- curve(dnorm(x, mean=mean(copper), sd=sd(copper)), add=TRUE)
+normalCurve
+
 abline(v=mean(copper), col="red")
 text(mean(copper),0.04,"Mean", col = "red", adj = c(0, -.1))
 abline(v=median(copper), col="blue")
 text(median(copper),0.04,"Median", col = "blue", adj = c(1, -.1))
 
-# Coeff of variation
+# Co-efficient of variation
 # ----------------------------------
 # Write the function to compute the coefficient of variation
 cv <- function(x) sd(x)/mean(x)
@@ -71,3 +72,24 @@ cat("The coeff of variation of Cu : ",cvCu)
 dim(meuse)
 # Obtain the names of the variables
 names(meuse)
+
+#Create data
+a <- seq(1,29)+4*runif(29,0.4)
+b <- seq(1,29)^2+runif(29,0.98)
+
+#Divide the screen in 2 columns and 2 lines
+par(mfrow=c(2,2))
+
+#Add a plot in each sub-screen !
+plot(histogram, pch=20)
+hist(histogram)
+boxplot(meuse$zinc, ylab="zinc", )
+
+#Extract the values of potential outliers based on IQR
+boxplot.stats(meuse$zinc)$out
+
+#Extract the row number corresponding to these outliers
+
+out <- boxplot.stats(meuse$zinc)$out
+out_ind <- which(meuse$zinc %in% c(out))
+out_ind                 

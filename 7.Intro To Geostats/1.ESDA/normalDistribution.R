@@ -1,4 +1,18 @@
-# Normal Distribution
+install.packages("rcompanion")
+library(sp)
+
+pacman::p_load(gstat, sp)
+data(meuse)
+df <- meuse
+knitr::kable(head(df, n=5), align = 'l')
+
+#Load existing/install missing libraries
+if (!require("pacman")) install.packages("pacman")
+pacman::p_load3
+data(meuse)
+df <- meuse
+knitr::kable(head(df, n=3), align = 'l')
+
 
 x <- rnorm(100 ,mean=5, sd=0.5) 
 histogramPlot <- hist(x,breaks=150,xlim=c(0,20),freq=FALSE)
@@ -14,5 +28,24 @@ y <- pnorm(x, mean = 2.5, sd = 2)
 plot(x,y)
 
 # Normal QQ plots
-qqnorm(copper, main='Copper in Meuse River')
-qqline(copper)
+qqnorm(meuse$copper, main='Copper in Meuse River', xlab = 'Copper', ylab = 'Frequency')
+qqline(meuse$copper)
+
+# Both Normal and Histogram at once using the rcompanion package
+install.packages("rcompanion")
+library(rcompanion)
+help(plotNormalHistogram)
+# Normal Distribution
+
+plotNormalHistogram(meuse$zinc)
+
+# Data transformation
+# 1 Log transform
+logZinc <- log(meuse$zinc)
+plotNormalHistogram(logZinc)
+
+# 2. Sqrt
+sqroot <- sqrt(meuse$zinc)
+plotNormalHistogram(sqroot)
+
+3.
