@@ -42,10 +42,10 @@ plotNormalHistogram(meuse$zinc)
 # Data transformation
 # 1 Log transform
 logZinc <- log(meuse$zinc)
-plotNormalHistogram(logZinc)
+plotNormalHistogram(logZinc, "Log Transform")
 
 # 2. Sqrt
 sqroot <- sqrt(meuse$zinc)
-plotNormalHistogram(sqroot)
+plotNormalHistogram(sqroot, main = "SquareRoot Transform")
 
 3.
