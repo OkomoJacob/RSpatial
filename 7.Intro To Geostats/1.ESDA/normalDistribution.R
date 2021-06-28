@@ -1,18 +1,14 @@
-install.packages("rcompanion")
-library(sp)
-
-pacman::p_load(gstat, sp)
-data(meuse)
-df <- meuse
-knitr::kable(head(df, n=5), align = 'l')
-
+# Clear memory
+rm(list=ls(all=TRUE))
 #Load existing/install missing libraries
-if (!require("pacman")) install.packages("pacman")
-pacman::p_load3
-data(meuse)
+if (!require("pacman", "rcompanion")) install.packages("pacman", "rcompanion")
+
+library(sp)
+library(rcompanion)
+pacman::p_load(gstat, sp)
+data <- data(meuse)
 df <- meuse
 knitr::kable(head(df, n=3), align = 'l')
-
 
 x <- rnorm(100 ,mean=5, sd=0.5) 
 histogramPlot <- hist(x,breaks=150,xlim=c(0,20),freq=FALSE)
@@ -20,7 +16,7 @@ histogramPlot
 abline(v=10, lwd=5)
 abline(v=c(4,6,8,12,14,16), lwd=3,lty=3)
 
-# Create a sequence of numbers between -10 and 10 incrementing by 0.2.
+# Create a sequence of numbers between -10 and 10 increamenting by 0.2.
 x <- seq(-10,10,by = .2)
 # Choose the mean as 2.5 and standard deviation as 2. 
 y <- pnorm(x, mean = 2.5, sd = 2)
@@ -33,19 +29,37 @@ qqline(meuse$copper)
 
 # Both Normal and Histogram at once using the rcompanion package
 install.packages("rcompanion")
-library(rcompanion)
 help(plotNormalHistogram)
 # Normal Distribution
 
-plotNormalHistogram(meuse$zinc)
+plotNormalHistogram(
+  meuse$zinc, 
+  main = "Original Data",
+  prob = FALSE,
+  col = "gray",
+  linecol = "blue",
+  )
 
 # Data transformation
-# 1 Log transform
-logZinc <- log(meuse$zinc)
-plotNormalHistogram(logZinc, "Log Transform")
+#Divide the screen in 2 columns and 2 lines
+par(mfrow=c(2,2))
+# Plot original Data
+plotNormalHistogram(meuse$zinc, main = "Original Data")
+
+# 1 Log transform(NB : log(0) is infinity, so avoid that by adding 1 to 0 numbers)
+logZinc <- log(meuse$zinc + 1)
+plotNormalHistogram(logZinc, main = "Log Transform")
 
 # 2. Sqrt
 sqroot <- sqrt(meuse$zinc)
-plotNormalHistogram(sqroot, main = "SquareRoot Transform")
+plotNormalHistogram(sqroot, main = "Sqrt Transform")
 
-3.
+# 3. Angular
+angular <- asin(sqrt(meuse$zinc / max(meuse$zinc)))
+plotNormalHistogram(angular, main = "Angular Trnsfrm")
+
+# 4. Logit transform
+logit <- logit(p)
+#plotNormalHistogram(logit, main = "Logit Transform")
+
+
