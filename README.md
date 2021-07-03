@@ -8,7 +8,7 @@
 ![GitHub forks](https://img.shields.io/github/forks/okomojacob/0x520x?style=social)
 
 #### Find Me On Social Media
-![Twitter Follow](https://img.shields.io/twitter/follow/okomojacob?style=social)
+[![image](https://img.shields.io/twitter/follow/okomojacob?style=social)](https://twitter.com/okomojacob)
 
 
 ### More Notes Later
