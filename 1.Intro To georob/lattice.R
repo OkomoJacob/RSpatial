@@ -1,7 +1,7 @@
 # Import the geostats libraries
 # library(sp)
 library(lattice) #for plotting graphics
-
+library(sp)
 #call the meuse R data
 data(meuse)
 
@@ -25,3 +25,4 @@ xyplot(log(zinc)~dist | ffreq, meuse, groups=soil, panel=function(x, y, ...)
   panel.loess(x, y, ...)
   }, 
 auto.key=TRUE)
+

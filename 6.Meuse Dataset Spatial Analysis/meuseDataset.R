@@ -1,10 +1,32 @@
 # Import the 2 packages
 library(sp)
 library(lattice)
+library(ggplot2)
+library(scales)
+library(gstat)
 
 # call the meuse data
 data(meuse)
 coordinates(meuse) <- c("x", "y")
+
+load(system.file("data", "meuse.rda", package = "sp"))
+
+#create a categorical variable
+meuse$zinc_cat <-cut(meuse$zinc, breaks = c(0,200,400,800,1200,2000))
+zinc.plot <- ggplot(aes(x=x, y=y), data = meuse)
+
+zinc.plot<-zinc.plot+geom_point(aes(color = zinc_cat))
+
+zinc.plot <- zinc.plot+coord_equal()
+
+zinc.plot <- zinc.plot+scale_color_brewer(pallete = "YlGnBu")
+
+zinc.plot
+
+
+
+
+
 
 # Predict topsoil zinc concentration using spplot & bubble plots
 spplot(meuse, "zinc", do.log = T, colorkey = TRUE)
@@ -13,7 +35,7 @@ bubble(meuse, "zinc", do.log = T, key.space = "right")
 data("meuse.grid")
 coordinates(meuse.grid) <- c("x", "y")
 meuse.grid <- as(meuse.grid, "SpatialGridDataFrame")
-library(gstat)
+
 
 # Import the gstat pkg to perform the IDW
 idw.out <- idw(zinc~1, meuse, meuse.grid, idp=2)

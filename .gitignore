@@ -11,6 +11,8 @@ OUTPUT
 
 # R Projects
 0x520x.Rproj
+.Rhistory *
+* .RData
 
 #Videos and Datasets
 10. Mini Project CourseWork/Videos/
