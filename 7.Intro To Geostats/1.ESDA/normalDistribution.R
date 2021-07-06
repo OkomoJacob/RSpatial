@@ -3,6 +3,7 @@ rm(list=ls(all=TRUE))
 #Load existing/install missing libraries
 if (!require("pacman", "rcompanion")) install.packages("pacman", "rcompanion")
 
+
 library(sp)
 library(rcompanion)
 pacman::p_load(gstat, sp)
@@ -56,10 +57,39 @@ plotNormalHistogram(sqroot, main = "Sqrt Transform")
 
 # 3. Angular
 angular <- asin(sqrt(meuse$zinc / max(meuse$zinc)))
+plotNormalHistogram(angular,col = "yellow", main = "Angular Trnsfrm")
+
+# 3. Angular as a %
+angular <- asin(sqrt(meuse$zinc / 100)*2/pi)
 plotNormalHistogram(angular, main = "Angular Trnsfrm")
 
 # 4. Logit transform
-logit <- logit(p)
+logit <- log10(meuse$zinc/(1--meuse$zinc))
+plotNormalHistogram(logit, main = "Logit(10) Trnsfrm")  
+
+logit <- log(meuse$zinc/(1--meuse$zinc))
+plotNormalHistogram(logit, main = "Logit Trnsfrm")  
 #plotNormalHistogram(logit, main = "Logit Transform")
 
+# Measure of Central Tendency
+# 1 Mean of 
+logZinc <- log(meuse$zinc + 1)
+mlogZinc <- mean(logZinc)
+plotNormalHistogram(logZinc, main = "Log Transform")
 
+# 2. Sqrt
+sqroot <- sqrt(meuse$zinc)
+msqrt <- mean(sqroot)
+plotNormalHistogram(sqroot, main = "Sqrt Transform")
+
+# 3. Angular
+angular <- asin(sqrt(meuse$zinc / max(meuse$zinc)))
+plotNormalHistogram(angular, main = "Angular Trnsfrm")
+
+# 3. Angular as a %
+angular <- asin(sqrt(meuse$zinc / 100)*2/pi)
+plotNormalHistogram(angular, main = "Angular Trnsfrm")
+
+# 4. Logit transform
+logit <- log10(meuse$zinc/(1--meuse$zinc))
+plotNormalHistogram(logit, main = "Logit(10) Trnsfrm")  
