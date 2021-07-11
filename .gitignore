@@ -12,10 +12,10 @@ OUTPUT
 # R Projects
 0x520x.Rproj
 .Rhistory *
-* .RData
+.Rhistory
+.RData
 
 #Videos and Datasets
 10. Mini Project CourseWork/Videos/
 10. Mini Project CourseWork/Datasets/
- Geostat2018-master.zip
 
