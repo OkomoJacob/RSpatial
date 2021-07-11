@@ -1,29 +1,30 @@
-# 1. Introduction
+# 1.----- STEP 1 Introduction ---------------- #
 
 # Lineaar Modelling of spatila Data  to explain the distribution of zinc concentration within the site.
 # Clear memory and load aster data packages
 rm(list = ls(all=TRUE))
 
-#.------- STEP 2. R geostatistics packages-----
+#.------- STEP 2. R geostatistics packages-----#
 
 library(sp) # Contains the Meuse data
 library(lattice) #plotting graphics
-library(ggplots)
+library(ggplot2)
 library(scales)
 library(gstat)
 library(sf)
-# library(GGally) # FOr ESDA
+library(GGally)
+library(cowplot) #To plot the correlations
 
 # 3. Spatial Data frames
 data(meuse)## loading data
 # Transform into a collection of simple features(SF) with attributes and geometries in the form of a df.
-meuse = st_as_sf(meuse,coords=c("x","y"),remove=FALSE)
-# Descriptive statistics of the meuse dataset
 summary(meuse)
 class(meuse)
 
-# View the spatial dataset on Meuse Map
+meuse = st_as_sf(meuse,coords=c("x","y"),remove=FALSE)
+# Descriptive statistics of the meuse dataset
 
+#.------- STEP 3. View the spatial dataset on Meuse Map -- #
 #1. Loading gridded data
 data(meuse.grid) 
 coordinates(meuse.grid) = c("x", "y")
@@ -47,15 +48,39 @@ plot(meuse.sr, col = "grey", add = TRUE)
 #6. plot the zinc dataset
 plot(meuse[,c('zinc')], add = TRUE, cex=1.5)
 #7. Add title
-
-
+title("Meuse Data")
 
 # ---------- STEP 4 ----------------- #
 # Perform ESDA to visualize the data so that we can assess how to look at the problem.
 #1.Transforming back the sf object into a data frame
 st_geometry(meuse) = NULL 
 
-#2. Print correlations between quantitative variables
+#2. Print correlations between quantitative variables, 
+ggpairs(meuse[,3:9])
+
+## We can see that Zinc has the highest R2 values, therefore we go for it in this spatial modelling
+# Create a new grid function to plot the zinc statistics individually, : zinc, 
+
+#3. Plot zinc against elevation and log zinc against elev
+plot_grid(
+  ggplot(meuse, aes(y = zinc, x = elev)) + geom_point(),
+  ggplot(meuse, aes(y = log(zinc), x = elev)) + geom_point(),
+  nrow = 1, ncol = 2)
+
+#3. Plot zinc against lag and log zinc against lag and log zinc against sqrt()
+plot_grid(
+  ggplot(meuse, aes(y = zinc, x = dist)) + geom_point(),
+  ggplot(meuse, aes(y = log(zinc), x = dist)) + geom_point(),
+  ggplot(meuse, aes(y = log(zinc), x = sqrt(dist))) + geom_point(),
+  nrow = 1, ncol = 3)
+
+#3. Plot representation of variation using the 
+plot_grid(
+  ggplot(meuse, aes(y = log(zinc), x = ffreq)) + geom_boxplot(),
+  ggplot(meuse, aes(y = log(zinc), x = soil)) + geom_boxplot(),
+  ggplot(meuse, aes(y = log(zinc), x = lime)) + geom_boxplot(),
+  ggplot(meuse, aes(y = log(zinc), x = landuse)) + geom_boxplot(),
+  nrow = 2, ncol = 2)
 
 
 
