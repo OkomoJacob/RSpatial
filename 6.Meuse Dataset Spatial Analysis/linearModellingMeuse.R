@@ -1,25 +1,34 @@
+# 1. Introduction
+
 # Lineaar Modelling of spatila Data  to explain the distribution of zinc concentration within the site.
 # Clear memory and load aster data packages
 rm(list = ls(all=TRUE))
+
+#.------- STEP 2. R geostatistics packages-----
+
 library(sp) # Contains the Meuse data
 library(lattice) #plotting graphics
-library(ggplot2)
+library(ggplots)
 library(scales)
 library(gstat)
 library(sf)
-library(GGally) # FOr ESDA
+# library(GGally) # FOr ESDA
 
+# 3. Spatial Data frames
 data(meuse)## loading data
 # Transform into a collection of simple features(SF) with attributes and geometries in the form of a df.
 meuse = st_as_sf(meuse,coords=c("x","y"),remove=FALSE)
 # Descriptive statistics of the meuse dataset
 summary(meuse)
+class(meuse)
 
 # View the spatial dataset on Meuse Map
 
 #1. Loading gridded data
 data(meuse.grid) 
 coordinates(meuse.grid) = c("x", "y")
+gridded(meuse.grid) = TRUE
+class(meuse.grid)
 
 #2. Transform gridded data into Spatial Pixels
 meuse.grid = as(meuse.grid, "SpatialPixels") 
@@ -38,15 +47,21 @@ plot(meuse.sr, col = "grey", add = TRUE)
 #6. plot the zinc dataset
 plot(meuse[,c('zinc')], add = TRUE, cex=1.5)
 #7. Add title
-title("Meuse dataset")
 
-# ---------- STEP 3 ----------------- #
+
+
+# ---------- STEP 4 ----------------- #
 # Perform ESDA to visualize the data so that we can assess how to look at the problem.
 #1.Transforming back the sf object into a data frame
 st_geometry(meuse) = NULL 
 
 #2. Print correlations between quantitative variables
-ggpairs(meuse[,3:9]) 
+
+
+
+
+
+
 
 
 
