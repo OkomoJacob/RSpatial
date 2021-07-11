@@ -2,7 +2,7 @@
 # Clear memory and load aster data packages
 rm(list = ls(all=TRUE))
 library(sp) # Contains the Meuse data
-library(lattice)
+library(lattice) #plotting graphics
 library(ggplot2)
 library(scales)
 library(gstat)
@@ -10,11 +10,13 @@ library(sf)
 library(GGally) # FOr ESDA
 
 data(meuse)## loading data
-meuse = st_as_sf(meuse,coords=c("x","y"),remove=FALSE) ## transforming data frame into sf object
+# Transform into a collection of simple features(SF) with attributes and geometries in the form of a df.
+meuse = st_as_sf(meuse,coords=c("x","y"),remove=FALSE)
 # Descriptive statistics of the meuse dataset
 summary(meuse)
 
 # View the spatial dataset on Meuse Map
+
 #1. Loading gridded data
 data(meuse.grid) 
 coordinates(meuse.grid) = c("x", "y")
@@ -38,9 +40,13 @@ plot(meuse[,c('zinc')], add = TRUE, cex=1.5)
 #7. Add title
 title("Meuse dataset")
 
+# ---------- STEP 3 ----------------- #
 # Perform ESDA to visualize the data so that we can assess how to look at the problem.
-st_geometry(meuse) = NULL ## Transforming back the sf object into a data frame
-ggpairs(meuse[,3:9]) ## print correlations between quantitative variables
+#1.Transforming back the sf object into a data frame
+st_geometry(meuse) = NULL 
+
+#2. Print correlations between quantitative variables
+ggpairs(meuse[,3:9]) 
 
 
 
@@ -99,8 +105,6 @@ plot(variogram(log(zinc)~1, data), type="l")
 
 #---------------------------------------------
 # Import the geostats libraries
-# library(sp)
-library(lattice) #for plotting graphics
 library(sp)
 #call the meuse R data
 data(meuse)
