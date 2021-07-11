@@ -1,12 +1,13 @@
 # Lineaar Modelling of spatila Data  to explain the distribution of zinc concentration within the site.
 # Clear memory and load aster data packages
 rm(list = ls(all=TRUE))
-library(sp)
+library(sp) # Contains the Meuse data
 library(lattice)
 library(ggplot2)
 library(scales)
 library(gstat)
 library(sf)
+library(GGally) # FOr ESDA
 
 data(meuse)## loading data
 meuse = st_as_sf(meuse,coords=c("x","y"),remove=FALSE) ## transforming data frame into sf object
@@ -25,7 +26,7 @@ meuse.grid = as(meuse.grid, "SpatialPixels")
 data(meuse.riv) 
 meuse.lst = list(Polygons(list(Polygon(meuse.riv)),"meuse.riv"))
 
-#4. concatenate all polygons of the river to reconstruct it entirely
+#4. Plot Zinc concentration on the floodplain along the Meuse River.
 meuse.sr = SpatialPolygons(meuse.lst) 
 image(meuse.grid, col = "yellowgreen")
 
@@ -37,9 +38,9 @@ plot(meuse[,c('zinc')], add = TRUE, cex=1.5)
 #7. Add title
 title("Meuse dataset")
 
-
-
-
+# Perform ESDA to visualize the data so that we can assess how to look at the problem.
+st_geometry(meuse) = NULL ## Transforming back the sf object into a data frame
+ggpairs(meuse[,3:9]) ## print correlations between quantitative variables
 
 
 
