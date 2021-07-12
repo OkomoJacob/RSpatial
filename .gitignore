@@ -10,7 +10,6 @@ INPUT
 OUTPUT
 
 # R Projects
-0x520x.Rproj
 .Rhistory *
 .Rhistory
 .RData
