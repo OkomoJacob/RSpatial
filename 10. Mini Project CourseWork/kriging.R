@@ -55,5 +55,59 @@ head(mydata)                                # preview first several rows in the 
 class(mydata)                              # confirms that it is a dataframe
 coordinates(mydata) = ~X+Y                 # indicate the X, Y spatial coordinates
 # Check the dataset summary statistics and visualizing 1st few samples
-summary(mydata)                                # confirms a spatial points dataframe
-head(coordinates(mydata))                      # check the first several coordinates
+summary(mydata)                            # confirms a spatial points dataframe
+head(coordinates(mydata))                  # check the first several coordinates
+
+
+# For of the experimental variograms we often work with Gaussian transformed data.This gives a better simulation
+npor.trn = nscore(mydata$PM2_5)               # normal scores transform
+mydata[["NPM2.5"]]<-npor.trn$nscore # append the normal scores transform 
+head(mydata)                                  # check the result
+
+# summary statistics of the new variable.
+summary(mydata$NPM2.5)
+
+# Visualize the original PM2.5 data distribution VS distribution of the normal score transform PM2.5 data
+par(mfrow=c(2,2))                              # set up a 2x2 matrix of plots 
+hist(mydata$PM2_5,main="Particulate Matter 2.5",xlab="PM 2.5 ug/m3",nclass = 15) # histogram
+plot(ecdf(mydata$PM2_5),main="NPM2_5",xlab="PM 2.5 ug/m3",ylab="Cumulative Probability") # CDF
+hist(mydata$NPM2.5,main="N[PM2.5 ug/m3]",xlab="N[PM 2.5 ug/m3]",nclass = 15) # histogram
+plot(ecdf(mydata$NPM2.5),main="N[PM 2.5 ug/m3]",xlab="N[PM 2.5 ug/m3]",ylab="Cumulative Probability") #CDF
+
+# Spatial visualization
+cuts = c(.05,.07,.09,.11,.13,.15,.17,.19,.21,.23)
+cuts.var = c(0.05,.1,.15,.20,.25,.3,.35,.4,.45,.5,.55,.6,.65,.7,.75,.8,.85,.9,.95)
+
+# Now the bubble plot.
+
+  bubble(mydata, "porosity", fill = FALSE, maxsize = 2, main ="Porosity (%)", identify = FALSE,xlab = "X (m)", ylab = "Y (m)")
+
+spplot(mydata, "PM2_5", do.log = TRUE,      # location map of porosity data
+       key.space=list(x=.85,y=0.97,corner=c(0,1)),cuts = cuts,
+       scales=list(draw=T),xlab = "X (m)", ylab = "Y (m)",main ="NPM2.5 ug/m3")
+
+# Modeling spatial continuity
+# We will use the anisotropic variogram models
+
+por.vm.ani <- vgm(psill = 0.6, "Exp", 800, anis = c(035, 0.5),nugget=0.4)
+por.vm.ani                                     # check the variogram model parameters
+
+# Visualize our anisotropic experimental and model variograms.
+name = c("035","125")                          # make name matrix
+color = c("blue","red")                        # make color matrix
+
+por.vg.035 = variogram(NPM2.5~1,mydata,cutoff = 3000,width =500,alpha = 35.0,tol.hor=22.5) # 035 directional 
+por.vg.125 = variogram(NPM2.5~1,mydata,cutoff = 3000,width =500,alpha = 125.0,tol.hor=22.5) # 125 directional
+
+plot(por.vg.035$dist,por.vg.035$gamma,main="NPM2.5 Anisotropic Variogram",xlab="  Lag Distance (m) ",ylab=" Semivariogram ",pch=16,col=color[1],ylim=c(0,1.2))
+points(por.vg.125$dist,por.vg.125$gamma,pch=16,col=color[2])
+abline(h = 1.0)
+
+unit_vector = c(sin(35*pi/180),cos(35*pi/180),0) # unit vector for 035 azimuth
+vm.ani.035 <- variogramLine(por.vm.ani,maxdist=3000,min=0.0001,n=100,dir=unit_vector,covariance=FALSE) # model at 035
+lines(vm.ani.035$dist,vm.ani.035$gamma,col=color[1]) # include variogram model 
+
+unit_vector = c(sin(55*pi/180),-1*cos(35*pi/180),0) # unit vector for 125 azimuth
+vm.ani.125 <- variogramLine(por.vm.ani,maxdist=3000,min=0.0001,n=100,dir=unit_vector,covariance=FALSE) # model at 125 
+lines(vm.ani.125$dist,vm.ani.125$gamma,col=color[2]) # include variogram model
+legend(2000,.8,name, cex=0.8, col=color,pch=c(16,16,16),lty=c(1,1,1)) # add legend
