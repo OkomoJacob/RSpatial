@@ -1,12 +1,11 @@
 ## Vegetation Indices
 <img src = "https://github.com/OkomoJacob/RSpatial/blob/main/8.vegetationIndices/imgs/methodology.PNG">
-These are numerical ...
+Vegetation Indices (VIs) are combinations of surface reflectance at two or more wavelengths designed to highlight a particular property of vegetation. They are derived using the reflectance properties of vegetation covering the region under study. Each of the VIs is designed to accentuate a particular vegetation property as demistifie in this study project.
 
 ### Interpretation of the Indices 
 #### 1. Normalized Difference Vegetation Index-NDVI  = 𝑵𝑰𝑹-Red/𝑵𝑰𝑹+Red
 <img src = "https://github.com/OkomoJacob/RSpatial/blob/main/8.vegetationIndices/imgs/ndvi.PNG">
 NDVI is a numerical indicator that uses the Red and Near-infrared spectral bands from a sensor. NDVI is highly associated with vegetation content. High NDVI values correspond to areas that reflect more in the near-infrared spectrum, hence corresponding to denser and healthier vegetation.It was observed that Sentinel 2 MSI sensor was more sensitive to NDVI  over L8 OLI and had values ranging from -0.4 to 0.6 as opposed to L8 OLI that scored -0.1 to 0.4 for the same study area. 
-
 
 #### 2. Green Normalized Difference Vegetation Index GNDVI = 𝑵𝑰𝑹−𝑮𝒓𝒆𝒆𝒏/𝑵𝑰𝑹+𝑮𝒓𝒆𝒆n
 <img src = "https://github.com/OkomoJacob/RSpatial/blob/main/8.vegetationIndices/imgs/gndvi.PNG">
