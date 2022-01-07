@@ -1,4 +1,4 @@
-## Some small stuff in R Statistical Language
+# Redesgning ERDAS Imagine using open source Geospatial options for Free access
 
 <img align="left" src="https://img.shields.io/badge/License-Apache%202.0-blue.svg"> <br>
 ![GitHub repo size](https://img.shields.io/github/repo-size/OkomoJacob/0x520x)
@@ -11,4 +11,4 @@
 [![image](https://img.shields.io/twitter/follow/okomojacob?style=social)](https://twitter.com/okomojacob)
 
 
-### More Notes Later
+### More To Do.
